@@ -1,2 +1,58 @@
-<mat-slider min="1" max="100" step="1" value="1"></mat-slider>
-<p>Текст проверки шрифта</p>
+<div style="padding: 1em">
+  <div>
+    <mat-slider min="1" max="100" step="1" value="1"></mat-slider>
+  </div>
+  <hr />
+  <div>
+    <h3>Inputs</h3>
+    <label>AutoComplete input</label>
+    <br />
+    <!-- <mat-label>Number</mat-label> -->
+    <input
+      type="text"
+      placeholder="Pick one"
+      aria-label="Number"
+      matInput
+      [formControl]="myControl"
+      [matAutocomplete]="auto"
+    />
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option
+        *ngFor="let option of filteredOptions | async"
+        [value]="option"
+      >
+        {{ option }}
+      </mat-option>
+    </mat-autocomplete>
+  </div>
+  <hr />
+  <div>
+    <h3>Buttons and Links</h3>
+    <section>
+      <button type="button">Button without material stylization</button><br />
+    </section>
+    <mat-divider></mat-divider>
+    <section>
+      <button mat-raised-button color="primary">raised</button><br />
+    </section>
+    <section>
+      <mat-divider>
+        <button mat-icon-button color="accent">
+          <mat-icon>home</mat-icon>
+        </button>
+      </mat-divider>
+    </section>
+
+    <section>
+      <button mat-icon-button color="accent"><mat-icon>home</mat-icon></button>
+    </section>
+    <br />
+    <a href="#" mat-fab color="warn">LINK</a>
+  </div>
+  <hr>
+  <div>
+      <h3>Progress-bar</h3>
+    <mat-progress-bar mode="determinate" value="30"></mat-progress-bar>
+  </div>
+</div>
+
